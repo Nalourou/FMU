@@ -1,0 +1,108 @@
+FMU (Fichier Multilingue Universel) – Documentation Officielle
+
+------------------------------------------------------------
+I. INTRODUCTION
+------------------------------------------------------------
+FMU signifie « Fichier Multilingue Universel ». Il permet de structurer du contenu textuel dans plusieurs langues grâce à des balises spécifiques.
+
+------------------------------------------------------------
+II. BALISES FMU
+------------------------------------------------------------
+
+<lang> </lang>
+- Objectif : Balise englobante contenant toutes les langues disponibles dans un fichier FMU.
+
+<fr>, <en>, <es>, etc.
+- Objectif : Définir le contenu dans une langue spécifique (ex. français, anglais, espagnol...).
+
+<title> </title>
+- Objectif : Contient uniquement le titre du document.
+
+<header> </header>
+- Objectif : Contient les sous-titres, chapitres, ou en-têtes divers.
+
+<body> </body>
+- Objectif : Contient le texte principal, les paragraphes, etc.
+
+<contents> </contents>
+- Objectif : Contient la table des matières ou un résumé du document.
+
+<info> </info>
+- Objectif : Contient les informations légales, dates, auteurs, conditions d’utilisation.
+
+------------------------------------------------------------
+III. STRUCTURE STANDARD D’UN FICHIER FMU
+------------------------------------------------------------
+
+<lang>
+    <fr>
+        <contents>Résumé...</contents>
+        <title>Mon Titre</title>
+        <header>Chapitre 1</header>
+        <body>Contenu en français...</body>
+        <info>Publié en 2025 par ...</info>
+    </fr>
+    <en>
+        <contents>Summary...</contents>
+        <title>My Title</title>
+        <header>Chapter 1</header>
+        <body>Content in English...</body>
+        <info>Published in 2025 by ...</info>
+    </en>
+</lang>
+
+* Remarque : <contents> et <info> peuvent être placés au début ou à la fin de chaque section.
+* Conseil : Ne pas imbriquer les balises <lang> entre elles.
+
+------------------------------------------------------------
+IV. STRUCTURE D’UN FICHIER FMU EN JSON (FMJ)
+------------------------------------------------------------
+
+Un fichier FMU est automatiquement transformé en JSON à la sauvegarde.
+
+Exemple :
+
+{
+  "lang": {
+    "fr": {
+      "contents": "...",
+      "title": "...",
+      "header": "...",
+      "body": "...",
+      "info": "..."
+    },
+    "en": {
+      ...
+    }
+  }
+}
+
+Le fichier porte l’extension `.fmu.json`.
+
+------------------------------------------------------------
+V. COMMENT UTILISER LE LECTEUR FMU ?
+------------------------------------------------------------
+
+1. L’utilisateur charge le fichier `.fmu.json`.
+2. Choisit une langue.
+3. Le contenu correspondant est affiché.
+
+------------------------------------------------------------
+VI. CONSEILS POUR RÉDIGER DES FMU EFFICACES
+------------------------------------------------------------
+
+- Rédiger d’abord dans une langue principale.
+- Utiliser l’IA (ex. ChatGPT, Gemini...) pour traduire.
+- Copier-coller dans les autres balises <lang>.
+- Ne pas négliger les balises <info> pour la conformité.
+
+------------------------------------------------------------
+VII. ÉDITEUR FMU AVEC STREAMLIT
+------------------------------------------------------------
+
+- Une zone de saisie pour taper les balises FMU.
+- Un bouton "Voir FMU JSON" transforme en JSON.
+- Une zone affiche le JSON généré.
+- Bouton vert : Voir le JSON.
+- Bouton orange : Télécharger.
+- Possibilité de masquer ou éditer le JSON.
